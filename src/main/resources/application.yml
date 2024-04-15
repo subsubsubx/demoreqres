@@ -1,0 +1,7 @@
+logging:
+  level:
+    me.bvn13.openfeign.logger.normalized: DEBUG
+
+
+base:
+  url: https://reqres.in
