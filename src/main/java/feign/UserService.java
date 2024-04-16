@@ -5,6 +5,7 @@ import dto.NewUser;
 import dto.NewUserResponse;
 import dto.UserDto;
 import dto.UsersDto;
+import io.qameta.allure.Step;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ public interface UserService {
     ResponseEntity<UsersDto> getUsers(@PathVariable("pageId") Integer pageId);
 
 
+    @Step("kal")
     @RequestMapping(method = RequestMethod.POST, value = "/api/users")
     ResponseEntity<NewUserResponse> postUser(@RequestBody NewUser newUser);
 

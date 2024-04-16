@@ -2,6 +2,8 @@ logging:
   level:
     me.bvn13.openfeign.logger.normalized: DEBUG
 
+feign:
+  okhttp: enabled
 
 base:
   url: https://reqres.in

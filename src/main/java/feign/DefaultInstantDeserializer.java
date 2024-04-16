@@ -9,14 +9,16 @@ import com.fasterxml.jackson.datatype.jsr310.deser.InstantDeserializer;
 
 import java.io.IOException;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
-public class DefaultInstantDeserializer extends JsonDeserializer<LocalDateTime> {
+public class DefaultInstantDeserializer extends JsonDeserializer<LocalDate> {
 
 
     @Override
-    public LocalDateTime deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
-        return LocalDateTime.parse(p.getText().substring(0, p.getText().length() - 1));
+    public LocalDate deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JacksonException {
+        return LocalDate.ofInstant(Instant.parse(p.getText()), ZoneId.of("UTC"));
     }
 }

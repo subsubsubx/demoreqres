@@ -9,6 +9,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 
@@ -24,5 +25,5 @@ public class NewUserResponse {
     public String job;
     public String id;
     @JsonDeserialize(using = DefaultInstantDeserializer.class)
-    public LocalDateTime createdAt;
+    public LocalDate createdAt;
 }

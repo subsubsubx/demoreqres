@@ -1,21 +1,23 @@
 package feign;
 
-import feign.slf4j.Slf4jLogger;
+import io.qameta.allure.okhttp3.AllureOkHttp3;
 import me.bvn13.openfeign.logger.normalized.NormalizedFeignLogger;
-import org.springframework.beans.factory.annotation.Autowired;
+import okhttp3.OkHttpClient;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableConfigurationProperties
 @ComponentScan(basePackages = "feign")
 public class Config {
 
-    @Autowired
-    public ReqInterceptor reqInterceptor;
+
+    @Bean
+    public feign.okhttp.OkHttpClient client() {
+        return new feign.okhttp.OkHttpClient(new OkHttpClient.Builder().addInterceptor(new AllureOkHttp3()).build());
+    }
 
 
     @Bean
