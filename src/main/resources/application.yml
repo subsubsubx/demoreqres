@@ -7,3 +7,7 @@ feign:
 
 base:
   url: https://reqres.in
+
+test:
+  user: eve.holt@reqres.in
+  password: cityslicka

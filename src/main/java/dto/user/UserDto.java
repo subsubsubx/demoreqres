@@ -1,16 +1,10 @@
-package dto;
+package dto.user;
 
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +14,7 @@ import java.io.Serializable;
 
 public class UserDto {
 
-    public UserResponse data;
+    public UserResponseDto data;
     public Support support;
 
     public static class Support{

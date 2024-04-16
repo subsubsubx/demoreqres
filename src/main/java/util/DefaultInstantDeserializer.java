@@ -1,4 +1,4 @@
-package feign;
+package util;
 
 
 import com.fasterxml.jackson.core.JacksonException;
