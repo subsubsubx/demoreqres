@@ -28,7 +28,7 @@ public class AllureInterceptor implements Interceptor {
 
         final ResponseBody responseBody = response.body();
 
-        if (Objects.nonNull(responseBody)) {
+/*        if (Objects.nonNull(responseBody)) {
             final byte[] bytes = responseBody.bytes();
             responseBuilder.body(ResponseBody.create(responseBody.contentType(), bytes));
 
@@ -42,8 +42,20 @@ public class AllureInterceptor implements Interceptor {
         sb.append("\nResponse code - ").append(response.code());
         if (responseBody != null) {
             sb.append("\nResponse body: ").append(responseBody);
-        }
-        Allure.step(sb.toString());
+        }*/
+
+        Allure.step("Hello World!", (step) -> {
+            step.parameter("HTTP Method", request.method());
+                    if (Objects.nonNull(request.body())){
+                        step.parameter("Request body", request.body());
+                }
+            step.parameter("Response code", response.code());
+            if (Objects.nonNull(response.body())){
+
+            //    step.parameter("Response body", responseBody);
+            }
+        });
+
 
         return responseBuilder.build();
     }
